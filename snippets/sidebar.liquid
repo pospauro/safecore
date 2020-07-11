@@ -1,0 +1,75 @@
+{% if settings.catalog_link_list != blank %}
+<div class="filter__container">
+  {% if settings.catalog_title != blank %}
+  <div class="filter_title">{{ settings.catalog_title }}</div>
+  <h4 class="accordian-toggle">
+    {{ settings.catalog_title }} 	
+    <span class="fa fa-plus"></span>
+  </h4>
+  {% endif %}
+  <ul class="first--sidebar accordian-content">
+    {% for link in linklists[settings.catalog_link_list].links %}
+    <li class="{% if link.active %}coll-active{% endif %}">
+      <a href="{{ link.url }}" title="{{ link.title }}">
+        {{ link.title }}
+      </a>
+      {% for child_link_check in link.links %}
+      {% assign child_link__active = false %}
+      {% if child_link_check.active %}
+      {% assign child_link__active = true %}
+      {% break %}
+      {% endif %}
+      {% endfor %}
+      {% if link.active or child_link__active %}
+      <ul class="secondary--sidebar">
+        {% for child_link in link.links %}
+        <li class="{% if child_link.active %}coll-active{% endif %}">
+          <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+          {% for grandchild_link_check in child_link.links %}
+          {% assign grandchild_link__active = false %}
+          {% if grandchild_link_check.active %}
+          {% assign grandchild_link__active = true %}
+          {% break %}
+          {% endif %}
+          {% endfor %}
+          {% if child_link.active or grandchild_link__active %}
+          <ul class="tertiary--sidebar">
+            {% for grandchild_link in child_link.links %}
+            <li class="{% if grandchild_link.active %}coll-active{% endif %}">
+              <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% if collection.all_tags.size > 0 %}
+{% if settings.tags_title != blank %}
+<div class="filter_title">{{ settings.tags_title }}</div>
+<h4 class="accordian-toggle">
+  {{ settings.tags_title }} 	
+  <span class="fa fa-plus"></span>
+</h4>
+{% endif %}
+<ul class="filter_with_tags accordian-content">
+  <li {% if request.path == collection.url %}class="coll-active"{% endif %}>
+    {{ 'All' | link_to: collection.url, 'All' }}
+  </li>
+  {% for tag in collection.all_tags %}
+  {% unless settings.exclude_tags contains tag %}
+  {% assign tag_handle = tag | handle %}
+  {%- capture link_to_tag -%}{{ collection.url }}/{{ tag_handle }}{%- endcapture -%}
+  <li {% if current_tags contains tag %}class="coll-active"{% endif %}>
+    {{ tag | link_to: link_to_tag, tag }}
+  </li>
+  {% endunless %}
+  {% endfor %}
+</ul>
+{% endif %}

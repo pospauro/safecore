@@ -1,0 +1,12 @@
+{% include 'breadcrumbs' %}
+<div class="maincontent_sidebar__wrapper">
+  {% if settings.tag_filtering %}
+  <div class="coll__side_bar">
+    {% include 'sidebar' %}
+  </div>
+  {% endif %}
+  <div class="coll__content">
+    {% section 'module-product' %}
+  </div>
+</div>
+{% section 'static-product-recommendations' %}
