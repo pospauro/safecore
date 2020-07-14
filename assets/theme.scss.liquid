@@ -4746,7 +4746,7 @@ $local-thumbnail-horizontal-gap: 12px;
 
   display: flex;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   margin-top: $gutter-vertical-small;
   margin-bottom: -$local-thumbnail-vertical-gap;
@@ -9716,17 +9716,17 @@ $slideshow-gutter: 70px + $gutter;
 
 
 .maincontent_sidebar__wrapper {
- max-width: 1020px;
+ max-width: 1300px;
   margin: 0 auto;
 
   .coll__side_bar {
     width: 25%;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0px;
+    margin-right: 20px;
   }
   .coll__content {
-    width: 75%;
-    margin-left: 10px;
+    width: 100%;
+    margin-left: 150px;
     margin-right: 10px;
   }
 
@@ -9738,7 +9738,7 @@ $slideshow-gutter: 70px + $gutter;
     margin: 0 0.5em 0.5em 0.5em;
     padding: 7px 0;
     line-height: 32px;
-    font-size: 18px;
+    font-size: 15px;
   }
   ul{
     margin-bottom: 20px;
