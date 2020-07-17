@@ -36,6 +36,7 @@
     </div>
   </div>
 
+  {% include 'breadcrumbs' %}
   {% assign products_per_page = section.settings.products_in_rows | times: section.settings.numbers_of_rows %}
   {% paginate collection.products by products_per_page %}
 
