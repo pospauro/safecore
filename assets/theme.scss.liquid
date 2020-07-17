@@ -1031,6 +1031,15 @@ $color-accent-onboarding-background: rgba($color-accent-text, 0.25);
   @include breakpoint(s) { padding-top: $gutter-double; }
 }
 
+{% comment %} Added this to fix padding on banners for pages that use .main-content {% endcomment %}
+%main-content-home-allproductspage {
+  max-width: $max-width;
+  {% comment %} padding: $gutter-vertical-large $gutter 0; {% endcomment %}
+  margin: 0 auto $gutter-vertical-large;
+
+  @include breakpoint(s) { padding-top: $gutter-double; }
+}
+
 %clearfix {
   &:before,
   &:after {
@@ -1595,7 +1604,13 @@ body {
   &.showing-drawer { overflow: hidden; }
 }
 
-.main-content { @extend %main-content; }
+{% comment %} TODO: Find out why .main-content is overriding the template product slideshow layout {% endcomment %}
+{% comment %} .main-content { @extend %main-content; } {% endcomment %}
+
+.main-content { @extend %main-content-home-allproductspage; } 
+
+{% comment %} Added this in case I solve the .main-content problem overriding the layout {% endcomment %}
+.main-content-home-allproductspage { @extend %main-content-home-allproductspage; }
 
 .clearfix { @extend %clearfix; }
 
@@ -6329,7 +6344,7 @@ input[type="button"].cart-shipping-calculate {
 .collection-header-has-image {
   position: relative;
   max-width: 100%;
-  min-height: 500px;
+  min-height: 300px;
   padding-top: $gutter-vertical-large;
   padding-bottom: $gutter-vertical-large;
   margin-top: 0;
