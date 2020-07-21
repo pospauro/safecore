@@ -16,7 +16,7 @@
   {% assign form_id = product.id %}
 {% endunless %}
 
-<div
+{% comment %} <div
   class="
     product-form
     {% if section.settings.show_spb %}product-form-has-spb{% endif %}
@@ -136,4 +136,4 @@
     {% endform %}
     <div class="product-cart-message" data-product-message></div>
   {% endif %}
-</div>
+</div> {% endcomment %}
