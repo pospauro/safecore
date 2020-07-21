@@ -52,13 +52,13 @@
 {% endif %}
 {% if collection.all_tags.size > 0 %}
 {% if settings.tags_title != blank %}
-<div class="filter_title">{{ settings.tags_title }}</div>
+{% comment %} <div class="filter_title">{{ settings.tags_title }}</div> {% endcomment %}
 <h4 class="accordian-toggle">
   {{ settings.tags_title }} 	
   <span class="fa fa-plus"></span>
 </h4>
 {% endif %}
-<ul class="filter_with_tags accordian-content">
+{% comment %} <ul class="filter_with_tags accordian-content">
   <li {% if request.path == collection.url %}class="coll-active"{% endif %}>
     {{ 'All' | link_to: collection.url, 'All' }}
   </li>
@@ -71,5 +71,5 @@
   </li>
   {% endunless %}
   {% endfor %}
-</ul>
+</ul> {% endcomment %}
 {% endif %}
