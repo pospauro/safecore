@@ -1705,10 +1705,12 @@ body {
   > *:last-child { margin-bottom: 0; }
 
   @include all-elems {
-    max-width: $max-width-small;
+    {% comment %} max-width: $max-width-small; {% endcomment %}
+    max-width: 880px;
     margin-right: auto;
     margin-left: auto;
-    padding: 0 30px;
+    {% comment %} Added to fix About Us section mobile layout but ruined the product description layout {% endcomment %}
+    {% comment %} padding: 0 30px; {% endcomment %}
 
     &.highlight {
       max-width: 100%;
