@@ -9746,8 +9746,9 @@ $slideshow-gutter: 70px + $gutter;
   }
   .coll__content {
     width: 75%;
-    margin-left: 10px;
-    margin-right: 10px;
+    {% comment %} Unnecessary margins for mobile view; it ruins the layout {% endcomment %}
+    {% comment %} margin-left: 10px; {% endcomment %}
+    {% comment %} margin-right: 10px; {% endcomment %}
   }
 
 }
