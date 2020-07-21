@@ -70,7 +70,7 @@
       </a>
     </h1>
 
-      <p class="product-list-item-price">
+      {% comment %} <p class="product-list-item-price">
         {% if onboarding %}
           {{ onboarding_price | money }}
         {% elsif item.available %}
@@ -93,7 +93,7 @@
         {% else %}
           {{ 'products.product.sold_out' | t }}
         {% endif %}
-      </p>
+      </p> {% endcomment %}
   </div>
 
 </article>
