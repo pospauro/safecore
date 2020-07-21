@@ -6349,7 +6349,8 @@ input[type="button"].cart-shipping-calculate {
   position: relative;
   max-width: 100%;
   min-height: 300px;
-  padding-top: $gutter-vertical-large;
+  {% comment %} Unnecessary; Keeps text on banner from being in the middle {% endcomment %}
+  {% comment %} padding-top: $gutter-vertical-large; {% endcomment %}
   padding-bottom: $gutter-vertical-large;
   margin-top: 0;
   text-align: center;
