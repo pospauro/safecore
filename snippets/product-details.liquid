@@ -28,7 +28,7 @@
     </p>
   {% endif %}
 
-  <p class="product-price">
+  {% comment %} <p class="product-price">
 
     <span class="price">
       <span class="money">{{ price | money }}</span>
@@ -42,6 +42,6 @@
       {% endunless %}
     </span>
 
-  </p>
+  </p> {% endcomment %}
 
 </div>
