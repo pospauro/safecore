@@ -1037,7 +1037,9 @@ $color-accent-onboarding-background: rgba($color-accent-text, 0.25);
   {% comment %} padding: $gutter-vertical-large $gutter 0; {% endcomment %}
   margin: 0 auto $gutter-vertical-large;
 
-  @include breakpoint(s) { padding-top: $gutter-double; }
+
+{% comment %} Removing because it adds padding on mobile on top of page titles {% endcomment %}
+{% comment %} @include breakpoint(s) { padding-top: $gutter-double; } {% endcomment %}
 }
 
 %clearfix {
