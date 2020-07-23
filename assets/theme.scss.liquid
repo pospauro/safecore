@@ -9672,7 +9672,8 @@ $slideshow-gutter: 70px + $gutter;
 
     .text-aligned-right & { padding-left: 30%; }
 
-    .text-aligned-left & { padding-right: 25%; }
+    {% comment %} Used pixels instead of percent to keep text from looking weird on wide monitors {% endcomment %}
+    .text-aligned-left & { padding-right: 400px; }
   }
 }
 
