@@ -21,6 +21,10 @@
     {% assign menu_class = menu_class | plus: 1 %}
   {% endif %}
 
+  {% if menus[section.settings.menu_3].links.size > 0 %}
+    {% assign menu_class = menu_class | plus: 1 %}
+  {% endif %}
+
   {% if
     settings.social_facebook_url != blank or
     settings.social_twitter_url != blank or
@@ -36,7 +40,7 @@
 
   <footer class="main-footer showing-{{ menu_class }}-lists">
     <div class="footer-columns">
-      {% for i in (1..2) %}
+      {% for i in (1..3) %}
         {% capture menu %}menu_{{ i }}{% endcapture %}
         {% if menus[section.settings[menu]].links.size > 0 %}
           {% capture menu %}{{ section.settings[menu] }}{% endcapture %}
@@ -229,6 +233,12 @@
       "type": "link_list",
       "id": "menu_2",
       "label": "Menu 2",
+      "info": "This menu won't show dropdown items"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Menu 3",
       "info": "This menu won't show dropdown items"
     },
     {
