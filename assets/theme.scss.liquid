@@ -2581,15 +2581,16 @@ $local-grey: #333;
 
   .footer-title {
     margin-top: 0;
-    margin-bottom: $gutter;
+    {% comment %} margin-bottom: $gutter;  {% endcomment %}
     font-size: rem(16px);
     color: $color-footer-header;
     text-align: left;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
 
     @include breakpoint(m) { text-align: center; }
 
-    @if $font-section-heading-capitalize { font-size: 14px; }
+    @if $font-section-heading-capitalize { font-size: 16px; }
   }
 }
 
